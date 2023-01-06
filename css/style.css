@@ -610,29 +610,14 @@ h6 {
   }
 }
 
-.skills__container {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.no-webp .skills__container::before{
-  background: url("../img/skills/logo.png") center center no-repeat; }
-
 .skills__container::before {
   content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%;
   width: 40%;
-  height: 100%;
+  height: 31.25rem;
+  background: url("../img/skills/logo.svg") center center no-repeat;
   background-size: 100%;
 }
 
@@ -720,8 +705,10 @@ h6 {
 }
 
 .item-skill__text {
+  display: inline-block;
   padding-left: 3.125rem;
   color: rgba(37, 49, 49, 0.7);
+  line-height: 1.2;
 }
 
 @supports (padding-bottom: clamp( 1.875rem , 0.4013157895rem  +  7.3684210526vw , 6.25rem )) {
@@ -986,15 +973,30 @@ h6 {
     }
 }
 
-@supports (padding-right: clamp( 0.0000000625rem , -5.2631578112rem  +  26.3157893684vw , 15.625rem )) {
+  .skills__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-column-gap: 1.25rem;
+       -moz-column-gap: 1.25rem;
+            column-gap: 1.25rem;
+  }
+
+@supports (padding-right: clamp( 0.0000000625rem , -3.5714284911rem  +  17.8571427679vw , 12.5rem )) {
     .skills__content {
-      padding-right: clamp( 0.0000000625rem , -5.2631578112rem  +  26.3157893684vw , 15.625rem );
+      padding-right: clamp( 0.0000000625rem , -3.5714284911rem  +  17.8571427679vw , 12.5rem );
     }
 }
 
-@supports not (padding-right: clamp( 0.0000000625rem , -5.2631578112rem  +  26.3157893684vw , 15.625rem )) {
+@supports not (padding-right: clamp( 0.0000000625rem , -3.5714284911rem  +  17.8571427679vw , 12.5rem )) {
     .skills__content {
-      padding-right: calc(0.0000000625rem + 15.6249999375 * (100vw - 20rem) / 59.375);
+      padding-right: calc(0.0000000625rem + 12.4999999375 * (100vw - 20rem) / 70);
     }
 }
 }
@@ -1014,12 +1016,6 @@ h6 {
 
   .about__photo {
     border-radius: 50%;
-  }
-
-  .skills__container {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
   }
 
   .skills__container::before {
@@ -1195,5 +1191,3 @@ h6 {
             transform: scale(1.1);
   }
 }
-
-.webp .skills__container::before{ background: url(../img/skills/logo.webp) center center no-repeat; }
